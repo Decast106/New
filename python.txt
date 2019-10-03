@@ -1,0 +1,15 @@
+cntr + J
+
+env\Scripts\activate
+
+
+
+
+
+
+
+
+
+
+
+
