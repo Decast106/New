@@ -1,0 +1,8 @@
+env/
+old/
+.vscode
+*pycache*
+dev/
+__pycache__/
+.vscode/
+

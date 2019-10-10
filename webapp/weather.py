@@ -27,13 +27,12 @@
 # if __name__ == "__main__":
 #     print(weather_by_city("Moscow,Russia"))
 
-from flask import current_app
 import requests
 
 def weather_by_city(city_name):
-    weather_url = current_app.config['WEATHER_URL']
+    weather_url = "http://api.worldweatheronline.com/premium/v1/weather.ashx"
     params = {
-        "key": current_app.config['WEATHER_API_KEY'],
+        "key": "3f58b2c6faa7436087d163348192009",
         "q": city_name,
         "format": "json",
         "num_of_days": 1,
