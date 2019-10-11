@@ -5,4 +5,4 @@ old/
 dev/
 __pycache__/
 .vscode/
-
+*.db
