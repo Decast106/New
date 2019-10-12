@@ -1,8 +1,8 @@
-env/
-old/
+env/*
+old/*
 .vscode
 *pycache*
-dev/
-__pycache__/
-.vscode/
+dev/*
+__pycache__/*
+.vscode/*
 *.db
