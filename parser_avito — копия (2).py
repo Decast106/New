@@ -11,33 +11,16 @@ def get_html(url):
 		return 'Ссылка временно не доступна, Ответ не возможен'
 
 def parse(html):
-	if html:
-		soup = BeautifulSoup(html, 'html.parser')
-		items = soup.findAll('div', class_='item__line')
-		# print(len(items))
-		result_items = []
-		for item in items:
-			title = item.find('h3', span_='itemprop').text
-			print(title)
-			# <span itemprop="name"> Radeon RX460 4GB </span>
-			url = item.find('a')['href']
-			published = item.find('time').text
-			result_items.append({
-				"title": title,
-				"url": url,
-				"published": published
-			})
-		
-		return result_items
-		
-	return False
+	soup = BeautifulSoup(html, 'html.parser')
+	items = soup.find('div', class_='item-with-contact')
+	return items
 
 
 if __name__ == "__main__":
 	url = "https://www.avito.ru/moskva/tovary_dlya_kompyutera/komplektuyuschie/videokarty?p=70"
 	html = get_html(url)
 	news = parse(html)
-	# print(news)	
+	print(news)	
 
 
 
