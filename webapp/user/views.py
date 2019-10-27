@@ -1,5 +1,6 @@
-from webapp.user.forms import LoginForm
+from webapp.user.forms import LoginForm, RegistrationForm
 from webapp.user.models import User
+from webapp.db import db
 from flask_login import current_user, login_user, logout_user
 from flask import Blueprint, render_template, flash, redirect, url_for
 
@@ -35,3 +36,11 @@ def logout():
     logout_user()
     flash('Вы успешно вышли из учетки')
     return redirect(url_for('news.index'))
+
+@blueprint.route('/register')
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('news.index'))
+    form = RegistrationForm()
+    title = "Регистрация"
+    return render_template('user/registration.html', page_title=title, form=form)

@@ -14,10 +14,10 @@ def parse(html):
 	if html:
 		soup = BeautifulSoup(html, 'html.parser')
 		items = soup.findAll('div', class_='item__line')
-		# print(len(items))
+		print(len(items))
 		result_items = []
 		for item in items:
-			title = item.find('h3', span_='itemprop').text
+			title = items.find('h3', span_='itemprop').text
 			print(title)
 			# <span itemprop="name"> Radeon RX460 4GB </span>
 			url = item.find('a')['href']
@@ -28,8 +28,7 @@ def parse(html):
 				"published": published
 			})
 		
-		return result_items
-		
+		return result_items		
 	return False
 
 
@@ -37,7 +36,7 @@ if __name__ == "__main__":
 	url = "https://www.avito.ru/moskva/tovary_dlya_kompyutera/komplektuyuschie/videokarty?p=70"
 	html = get_html(url)
 	news = parse(html)
-	# print(news)	
+	print(news)	
 
 
 
