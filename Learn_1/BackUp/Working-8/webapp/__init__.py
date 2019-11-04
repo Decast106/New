@@ -2,10 +2,6 @@ from flask import Flask, render_template
 from webapp.model import db, Vacancy
 from webapp.hh_2 import hh_parse
 
-# key_request = str(input('Кем будешь работать'))
-# day_request = int(input('На сколько старые предложения хочешь увидеть'))
-
-
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
